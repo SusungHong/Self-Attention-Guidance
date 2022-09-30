@@ -1,5 +1,11 @@
-# Self-Attention Diffusion Guidance
+## <b>Webpage template</b>
 
-This is the implementation of the paper "Improving Sample Quality of Diffusion Model Using the Self-Attention Guidance" by Susung Hong, Gyuseong Lee, Wooseok Jang and Seungryong Kim.
+This webpage template was made for a [colorful ECCV paper](http://richzhang.github.io/colorization/). See how the webpage looks [here](https://richzhang.github.io/webpage-template).
 
-The code and camera-ready version paper will be made available soon.
+To use this template, clone the repo:
+
+```
+git clone https://github.com/richzhang/webpage-template.git
+```
+
+Copy the contents into a `gh-pages` branch of a GitHub repo. That will automatically make a webpage under address [GITHUB_USERNAME.github.io/REPO_NAME](GITHUB_USERNAME.github.io/REPO_NAME).
