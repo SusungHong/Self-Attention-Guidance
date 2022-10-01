@@ -164,22 +164,46 @@
 					</td>
 				</tr>
 			</table>
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px">Korea University<sup>1</sup></a></span>
+						</center>
+					</td>
+			
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px">UC Berkeley<sup>2</sup></a></span>
+						</center>
+					</td>
+					
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px">Ewha Womans University<sup>3</sup></a></span>
+						</center>
+					</td>
+
+				</tr>
+			</table>
+			<hr>
 			<table align=center width=250px>
 				<tr>
 					<td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href=''>[Paper]</a></span>
+							<span style="font-size:20px">[Paper]</a></span>
 						</center>
 					</td>
 					<td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href='https://github.com/richzhang/webpage-template'>[GitHub]</a></span><br>
+							<span style="font-size:20px"><a href="https://github.com/PnDong/Self-Attention-Guidance/">[Code]</a></span><br>
 						</center>
 					</td>
 				</tr>
 			</table>
 		</table>
 	</center>
+	<hr>
 
 	<center>
 		<table align=center width=850px>
@@ -194,7 +218,7 @@
 		<table align=center width=850px>
 			<tr>
 				<td>
-					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
+					Qualitative comparisons between unguided and guided samples.
 				</td>
 			</tr>
 		</table>
@@ -206,7 +230,7 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				Following generative adversarial networks (GANs), a \textit{de facto} standard model for image generation, denoising diffusion models (DDMs) have been actively researched and attracted strong attention due to their capability to generate images with high quality and diversity. However, the way the internal self-attention mechanism works inside the UNet of DDMs is under-explored. To unveil them, in this paper, we first investigate the self-attention operations within the black-boxed diffusion models and build hypotheses. Next, we verify the hypotheses about the self-attention map by conducting frequency analysis and testing the relationships with the generated objects. In consequence, we find out that the attention map is closely related to the quality of generated images. On the other hand, diffusion guidance methods based on additional information such as labels are proposed to improve the quality of generated images. Inspired by these methods, we present label-free guidance based on the intermediate self-attention map that can guide existing pretrained diffusion models to generate images with higher fidelity. In addition to the enhanced sample quality when used alone, we show that the results are further improved by combining our method with classifier guidance on ImageNet 128$\times$128.
+				Following generative adversarial networks (GANs), a de facto standard model for image generation, denoising diffusion models (DDMs) have been actively researched and attracted strong attention due to their capability to generate images with high quality and diversity. However, the way the internal self-attention mechanism works inside the UNet of DDMs is under-explored. To unveil them, in this paper, we first investigate the self-attention operations within the black-boxed diffusion models and build hypotheses. Next, we verify the hypotheses about the self-attention map by conducting frequency analysis and testing the relationships with the generated objects. In consequence, we find out that the attention map is closely related to the quality of generated images. On the other hand, diffusion guidance methods based on additional information such as labels are proposed to improve the quality of generated images. Inspired by these methods, we present label-free guidance based on the intermediate self-attention map that can guide existing pretrained diffusion models to generate images with higher fidelity. In addition to the enhanced sample quality when used alone, we show that the results are further improved by combining our method with classifier guidance on ImageNet 128x128.
 			</td>
 		</tr>
 	</table>
