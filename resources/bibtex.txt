@@ -1,6 +1,6 @@
-@inproceedings{author20XXtitle,
-  title={Please cite me},
-  author={Author, First and Author, Second and Author, Third},
-  booktitle={Conference},
-  year={20XX}
+@article{hong2022improving,
+  title={Improving Sample Quality of Diffusion Model Using the Self-Attention Guidance},
+  author={Hong, Susung and Lee, Gyuseong and Jang, Wooseok and Kim, Seungryong},
+  journal={arXiv preprint arXiv:22xx.xxxxx},
+  year={2022}
 }
