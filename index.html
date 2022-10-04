@@ -280,6 +280,8 @@
 			</td>
 		</tr>
 	</table>
+
+	<div class="box"></div>
 	
 	<table align=center width=400px>
 		<center><button type="submit">
@@ -313,7 +315,10 @@
 		<center>
 			<tr>
 				<td>
-					<center>Comparison of self-attention masks of DINO and ADM.</center>
+					<center>Comparison of self-attention masks. (a) Self-attention masks of DINO (Caron et al. 2021), (b) self-attention masks
+						of unconditional ADM (Dhariwal and Nichol 2021). Compared to the self-attention masks of the DINO, those of ADM tend
+						to attend to the high-frequency details, e.g., edge of an object, bushes, pebbles, and other repetitive patterns, rather than being
+						centric on a single object.</center>
 				</td>
 			</tr>
 		</center>
@@ -325,11 +330,6 @@
 					<td><img class="round" style="width:700px" src="./resources/frequency.png"/></td>
 				</center>
 			</td>
-			<td align=center width=400px>
-				<center>
-					<td><img class="round" style="width:250px" src="./resources/semantic.png"/></td>
-				</center>
-			</td>
 		</tr>
 	</table>
 	<table align=center width=950px>
@@ -337,9 +337,6 @@
 			<tr>
 				<td width=700px>
 					<center>Frequency analysis of the self-attention map.</center>
-				</td>
-				<td width=250px>
-					<center>Semantic analysis of the self-attention map.</center>
 				</td>
 			</tr>
 		</center>
