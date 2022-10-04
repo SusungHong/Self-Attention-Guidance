@@ -118,7 +118,8 @@
 		margin-top: 50px;
 		width: 1000px;
 		height: 500px;
-		border: 0;
+		border: none;
+		outline: none;
 		cursor: pointer;
 		font-size: 2rem;
 		color: white;
@@ -126,6 +127,8 @@
 		background-size: cover;
 	}
 	button:hover {
+		border: none;
+		outline: none;
 		background-image: url('./resources/unselected_ours.png');
 		background-size: cover;
 	}
@@ -257,26 +260,26 @@
 		<tr>
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:500px" src="./resources/ani1.gif"/></td>
+					<img class="round" style="width:500px" src="./resources/ani1.gif"/>
 				</center>
 			</td>
 			
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:500px" src="./resources/ani2.gif"/></td>
+					<img class="round" style="width:500px" src="./resources/ani2.gif"/>
 				</center>
 			</td>
 		</tr>
 		<tr>
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:500px" src="./resources/ani3.gif"/></td>
+					<img class="round" style="width:500px" src="./resources/ani3.gif"/>
 				</center>
 			</td>
 			
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:500px" src="./resources/ani4.gif"/></td>
+					<img class="round" style="width:500px" src="./resources/ani4.gif"/>
 				</center>
 			</td>
 		</tr>
@@ -307,7 +310,7 @@
 		<tr>
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:1000px" src="./resources/compare.png"/></td>
+					<img class="round" style="width:1000px" src="./resources/compare.png"/>
 				</center>
 			</td>
 		</tr>
@@ -329,7 +332,7 @@
 		<tr>
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:1000px" src="./resources/frequency.png"/></td>
+					<img class="round" style="width:1000px" src="./resources/frequency.png"/>
 				</center>
 			</td>
 		</tr>
@@ -349,36 +352,34 @@
 	</table>
 	<table align=center width=1000px>
 		<tr>
-			<td align=center width=600px>
+			<td align=center width=550px>
 				<center>
-					<td><img class="round" style="width:400px" src="./resources/semantic.png"/></td>
+					<img class="round" style="width:400px" src="./resources/semantic.png"/>
 				</center>
 			</td>
-			<td align=center width=400px>
+			<td align=center width=450px>
 				<center>
-					<td><img class="round" style="width:300px" src="./resources/iou.png"/></td>
+					<img class="round" style="width:300px" src="./resources/iou.png"/>
 				</center>
 			</td>
 		</tr>
 	</table>
-	<table align=center width=700px>
-		<center>
-			<tr>
-				<td width=400px>
-					<center><b>Visualization of self-attention masks compared
-						to object masks.</b> (a) Generated images, (b) the object masks
-						of Mask R-CNN (He et al. 2017) (c) the self-attention masks
-						of unconditional ADM (Dhariwal and Nichol 2021).
-					</center>
-				</td>
-				<td width=300px>
-					<center>Intersection of Unit (IoU) between the object mask
-						predicted by off-the-shelf Mask R-CNN (He et al. 2017) and
-						the self-attention of diffusion models.						
-					</center>
-				</td>
-			</tr>
-		</center>
+	<table align=center width=1000px>
+		<tr>
+			<td width=550px>
+				<center><b>Visualization of self-attention masks compared
+					to object masks.</b> (a) Generated images, (b) the object masks
+					of Mask R-CNN (He et al. 2017) (c) the self-attention masks
+					of unconditional ADM (Dhariwal and Nichol 2021).
+				</center>
+			</td>
+			<td width=450px>
+				<center>Intersection of Unit (IoU) between the object mask
+					predicted by off-the-shelf Mask R-CNN (He et al. 2017) and
+					the self-attention of diffusion models.						
+				</center>
+			</td>
+		</tr>
 	</table>
 	<br>
 
@@ -436,7 +437,7 @@
 		<center>
 			<tr>
 				<td>
-					<center>For the more detailed method, results, analyses, and powerful ablation study, please refer to our <a href="https://arxiv.org/abs/2210.00939">Paper and Supplementary Material</a>!</center>
+					<center>For the more detailed method, results, analyses, and powerful ablation study,<br>please refer to our <a href="https://arxiv.org/abs/2210.00939">Paper and Supplementary Material</a>!</center>
 				</td>
 			</tr>
 		</center>
