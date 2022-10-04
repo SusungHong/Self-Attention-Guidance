@@ -293,7 +293,7 @@
 		<center>
 			<tr>
 				<td>
-					<center>Unselected qualitative comparison of our method to unguided ADM.</center>
+					<center>Unselected qualitative comparison of our method to unguided ADM (Dhariwal and Nichol 2021).</center>
 				</td>
 			</tr>
 		</center>
@@ -316,10 +316,11 @@
 		<center>
 			<tr>
 				<td>
-					<center>Comparison of self-attention masks. (a) Self-attention masks of DINO (Caron et al. 2021), (b) self-attention masks
+					<center><b>Comparison of self-attention masks.</b> (a) Self-attention masks of DINO (Caron et al. 2021), (b) self-attention masks
 						of unconditional ADM (Dhariwal and Nichol 2021). Compared to the self-attention masks of the DINO, those of ADM tend
 						to attend to the high-frequency details, e.g., edge of an object, bushes, pebbles, and other repetitive patterns, rather than being
-						centric on a single object.</center>
+						centric on a single object.
+					</center>
 				</td>
 			</tr>
 		</center>
@@ -328,7 +329,7 @@
 		<tr>
 			<td align=center width=400px>
 				<center>
-					<td><img class="round" style="width:700px" src="./resources/frequency.png"/></td>
+					<td><img class="round" style="width:1000px" src="./resources/frequency.png"/></td>
 				</center>
 			</td>
 		</tr>
@@ -337,7 +338,44 @@
 		<center>
 			<tr>
 				<td width=700px>
-					<center>Frequency analysis of the self-attention map.</center>
+					<center><b>Frequency analysis of the self-attention map.</b> (a), (b) and (c) show the frequency magnitude comparison of 8×8,
+						16×16, and 32×32 patch sizes, respectively. The last-layer attention maps of the corresponding resolution are used to extract
+						the masks. (d) is the 3D visualization of the percentage of magnitude difference between the attention masks and the inverted
+						masks regarding the 32×32 patches.
+					</center>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:300px" src="./resources/semantic.png"/></td>
+				</center>
+			</td>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:200px" src="./resources/iou.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=950px>
+		<center>
+			<tr>
+				<td width=300px>
+					<center><b>Visualization of self-attention masks compared
+						to object masks.</b> (a) Generated images, (b) the object masks
+						of Mask R-CNN (He et al. 2017) (c) the self-attention masks
+						of unconditional ADM (Dhariwal and Nichol 2021).
+					</center>
+				</td>
+				<td width=200px>
+					<center>Intersection of Unit (IoU) between the object mask
+						predicted by off-the-shelf Mask R-CNN (He et al. 2017) and
+						the self-attention of diffusion models.						
+					</center>
 				</td>
 			</tr>
 		</center>
