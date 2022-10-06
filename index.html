@@ -304,6 +304,31 @@
 	<br>
 
 	<hr>
+	<center><h1>Method Diagram</h1></center>
+
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:1000px" src="./resources/method_diagram.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					<b>Overview of our method.</b> First, we feed the input to the UNet to get the attention map and the output.
+					Then, we selectively mask the input and the blurred input according to the attention map. We combine those two and
+					feed it to the UNet. Finally, with our guidance scale s, we linearly combine the two outputs according to Eq. 17.
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+
+	<hr>
 	<center><h1>Exploring Self-Attention Maps<br>Inside Diffusion Models</h1></center>
 
 	<table align=center width=400px>
@@ -383,30 +408,6 @@
 	</table>
 	<br>
 
-	<hr>
-	<center><h1>Method Diagram</h1></center>
-
-	<table align=center width=400px>
-		<tr>
-			<td align=center width=400px>
-				<center>
-					<td><img class="round" style="width:1000px" src="./resources/method_diagram.png"/></td>
-				</center>
-			</td>
-		</tr>
-	</table>
-	<table align=center width=850px>
-		<center>
-			<tr>
-				<td>
-					<b>Overview of our method.</b> First, we feed the input to the UNet to get the attention map and the output.
-					Then, we selectively mask the input and the blurred input according to the attention map. We combine those two and
-					feed it to the UNet. Finally, with our guidance scale s, we linearly combine the two outputs according to Eq. 17.
-				</td>
-			</tr>
-		</center>
-	</table>
-	<br>
 
 	<hr>
 
