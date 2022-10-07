@@ -63,7 +63,7 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 | LSUN Cat 256×256 | 250 | 0.0 (baseline)<br>0.05 | 7.03<br>6.87 | 8.24<br>8.21 | -<br>- | 0.60<br>0.60 | 0.53<br>0.50 |
 | LSUN Horse 256×256 | 250 | 0.0 (baseline)<br>0.01 | 3.45<br>3.43 | 7.55<br>7.51 | -<br>- | 0.68<br>0.68 | 0.56<br>0.55 |
 
-To see more ablation study, and explore properties of self-attention in diffusion models, see the [Paper](https://arxiv.org/abs/2210.00939).
+To see the powerful ablation study and explore properties of self-attention in diffusion models, see the [Paper](https://arxiv.org/abs/2210.00939).
 
 # Cite as
 ```
