@@ -46,6 +46,7 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 # Results
 
 * ImageNet 128x128
+
 | SAG | CG | FID | sFID | Precision | Recall |
 |-------------------|-------------------|---------------------|--------------------|--------------------|--------------------|
 |  |  | 5.91 | 5.09 | 0.70 | 0.65 |
