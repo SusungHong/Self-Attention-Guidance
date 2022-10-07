@@ -11,7 +11,7 @@ Pretrained weights for ImageNet and LSUN can be downloaded from [the repository]
 # Sampling from Pretrained Diffusion Models
 You can sample from pretrained diffusion models with self-attention guidance by changing  `SAG_FLAGS` in the following commands. Note that sampling with `--guide_scale 1.0` means sampling without self-attention guidance.
 
- * ImageNet 128x128 model (`--classifier_guidance False` deactivates the classifier guidance):
+ * ImageNet 128x128 model (`--classifier_guidance False` deactivates classifier guidance):
 ```
 SAMPLE_FLAGS="--batch_size 64 --num_samples 10000 --timestep_respacing 250"
 MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --diffusion_steps 1000 --image_size 128 --learn_sigma True --noise_schedule linear --num_channels 256 --num_heads 4 --num_res_blocks 2 --resblock_updown True --use_fp16 True --use_scale_shift_norm True"
