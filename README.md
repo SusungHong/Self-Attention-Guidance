@@ -3,6 +3,6 @@
 
 This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Susung Hong, Gyuseong Lee, Wooseok Jang and Seungryong Kim.
 
-This repository is based on [openai/improved-diffusion](https://github.com/openai/improved-diffusion), and we modified feature extraction code from [yandex-research/ddpm-segmentation]([https://github.com/yandex-research/ddpm-segmentation]).
+This repository is based on [openai/improved-diffusion](https://github.com/openai/improved-diffusion), and we modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation).
 
 The code will be made available soon.
