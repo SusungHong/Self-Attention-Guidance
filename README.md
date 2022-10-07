@@ -45,7 +45,7 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 
 # Results
 
-**Compatibility of self-attention guidance (SAG) and classifier guidance (CG) on ImageNet 128x128 model**
+**Compatibility of self-attention guidance (SAG) and classifier guidance (CG) on ImageNet 128x128 model:**
 
 | SAG | CG | FID | sFID | Precision | Recall |
 |---|---|---|---|---|---|
@@ -54,7 +54,7 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 | V |  | 5.11 | 4.09 | 0.72 | 0.65 |
 | V | V | 2.58 | 4.35 | 0.79 | 0.59 |
 
-**Results on pretrained models**
+**Results on pretrained models:**
 
 | Model | # of steps | Self-attention guidance scale | FID | sFID | IS | Precision | Recall |
 |:---|:---:|:---:|---:|---:|---:|---:|---:|
@@ -62,6 +62,8 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 | ImageNet 256×256 (Cond.) | 250 | 0.0 (baseline)<br>0.2 | 10.94<br>9.41 | 6.02<br>5.28 | 100.98<br>104.79 | 0.619<br>0.70 | 0.63<br>0.62 |
 | LSUN Cat 256×256 | 250 | 0.0 (baseline)<br>0.05 | 7.03<br>6.87 | 8.24<br>8.21 | -<br>- | 0.60<br>0.60 | 0.53<br>0.50 |
 | LSUN Horse 256×256 | 250 | 0.0 (baseline)<br>0.01 | 3.45<br>3.43 | 7.55<br>7.51 | -<br>- | 0.68<br>0.68 | 0.56<br>0.55 |
+
+To see more ablation study, and explore properties of self-attention in diffusion models, see the [Paper](https://arxiv.org/abs/2210.00939).
 
 # Cite as
 ```
