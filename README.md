@@ -5,7 +5,7 @@ This is the implementation of the paper <a href="https://arxiv.org/abs/2210.0093
 
 This repository is based on [openai/improved-diffusion](https://github.com/openai/improved-diffusion), and we modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation) to get the self-attention maps.
 
-# Downloading Pretrained Diffusion Models (and Classifiers for CG)
+## Downloading Pretrained Diffusion Models (and Classifiers for CG)
 Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Place them in the ./models/ directory.
 
 # Sampling from Pretrained Diffusion Models
