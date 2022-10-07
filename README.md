@@ -53,8 +53,6 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 | V |  | 5.11 | 4.09 | 0.72 | 0.65 |
 | V | V | 2.58 | 4.35 | 0.79 | 0.59 |
 
-| Model | # of steps | Self-attention guidance scale | FID | multi-crop | num-prototypes |
-
 # Cite as
 ```
 @article{hong2022improving,
