@@ -59,7 +59,7 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 | Model | # of steps | Self-attention guidance scale | FID | sFID | IS | Precision | Recall |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | ImageNet 256×256 (Uncond.) | 250 | 0.0 (baseline)<br>0.5<br>0.8 | 26.21<br>20.31<br>20.08 | 6.35<br>5.09<br>5.77 | 39.70<br>45.30<br>45.56 | 0.61<br>0.66<br>0.68 | 0.63<br>0.61<br>0.59 |
-| ImageNet 256×256 (Cond.) | 250 | 0.0 (baseline)<br>0.2 | 10.94<br>9.41 | 6.02<br>5.28 | 100.98<br>104.79 | 0.619<br>0.70 | 0.63<br>0.62 |
+| ImageNet 256×256 (Cond.) | 250 | 0.0 (baseline)<br>0.2 | 10.94<br>9.41 | 6.02<br>5.28 | 100.98<br>104.79 | 0.69<br>0.70 | 0.63<br>0.62 |
 | LSUN Cat 256×256 | 250 | 0.0 (baseline)<br>0.05 | 7.03<br>6.87 | 8.24<br>8.21 | -<br>- | 0.60<br>0.60 | 0.53<br>0.50 |
 | LSUN Horse 256×256 | 250 | 0.0 (baseline)<br>0.01 | 3.45<br>3.43 | 7.55<br>7.51 | -<br>- | 0.68<br>0.68 | 0.56<br>0.55 |
 
