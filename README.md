@@ -10,8 +10,6 @@ Pretrained weights for ImageNet and LSUN can be downloaded from [the repository]
 
 # Sampling from Pretrained Diffusion Models
 You can sample from pretrained diffusion models with self attention guidance by changing SAG_FLAGS in the following commands:
-Note for these sampling runs that you can set `--classifier_scale 0` to sample from the base diffusion model.
-You may also use the `image_sample.py` script instead of `classifier_sample.py` in that case.
 
  * ImageNet 128x128 model:
 ```
