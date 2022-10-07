@@ -9,7 +9,7 @@ This repository is based on [openai/improved-diffusion](https://github.com/opena
 Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Place them in the ./models/ directory.
 
 # Sampling from Pretrained Diffusion Models
-You can sample from pretrained diffusion models with self attention guidance by changing SAG_FLAGS in the following commands:
+You can sample from pretrained diffusion models with self-attention guidance by changing SAG_FLAGS in the following commands. Note that sampling with the guide_scale of 1.0 means sampling without self-attention guidance:
 
  * ImageNet 128x128 model:
 ```
