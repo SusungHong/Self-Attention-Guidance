@@ -1,7 +1,7 @@
 # Self-Attention Diffusion Guidance
 ![image](https://user-images.githubusercontent.com/5498512/194516853-18048309-06c1-4e7c-9a3d-9d911186272a.png)
 
-This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Susung Hong, Gyuseong Lee, Wooseok Jang and Seungryong Kim. To gain insight from our careful analysis of the self-attention maps of diffusion models, please see our [Paper](https://arxiv.org/abs/2210.00939).
+This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Susung Hong, Gyuseong Lee, Wooseok Jang and Seungryong Kim. To gain insight from our exploration of the self-attention maps of diffusion models, please see our [Paper](https://arxiv.org/abs/2210.00939).
 
 This repository is based on [openai/improved-diffusion](https://github.com/openai/improved-diffusion), and we modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation) to get the self-attention maps.
 
@@ -62,8 +62,6 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 | ImageNet 256×256 (Cond.) | 250 | 0.0 (baseline)<br>0.2 | 10.94<br>9.41 | 6.02<br>5.28 | 100.98<br>104.79 | 0.619<br>0.70 | 0.63<br>0.62 |
 | LSUN Cat 256×256 | 250 | 0.0 (baseline)<br>0.05 | 7.03<br>6.87 | 8.24<br>8.21 | -<br>- | 0.60<br>0.60 | 0.53<br>0.50 |
 | LSUN Horse 256×256 | 250 | 0.0 (baseline)<br>0.01 | 3.45<br>3.43 | 7.55<br>7.51 | -<br>- | 0.68<br>0.68 | 0.56<br>0.55 |
-
-To see the powerful ablation study and explore properties of self-attention in diffusion models, see the [Paper](https://arxiv.org/abs/2210.00939).
 
 # Cite as
 ```
