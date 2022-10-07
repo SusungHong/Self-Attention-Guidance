@@ -45,7 +45,7 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 
 # Results
 
-* ImageNet 128x128
+**Compatibility of self-attention guidance (SAG) and classifier guidance (CG) on ImageNet 128x128 model**
 
 | SAG | CG | FID | sFID | Precision | Recall |
 |-------------------|-------------------|---------------------|--------------------|--------------------|--------------------|
@@ -53,6 +53,15 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 |  | V | 2.97 | 5.09 | 0.78 | 0.59 |
 | V |  | 5.11 | 4.09 | 0.72 | 0.65 |
 | V | V | 2.58 | 4.35 | 0.79 | 0.59 |
+
+**Results on pretrained models**
+
+| Model | # of steps | Self-attention guidance scale | FID | sFID | IS | Precision | Recall |
+|--------------------|--------------------|-------------------|-------------------|---------------------|--------------------|--------------------|--------------------|
+| ImageNet 256×256 (Uncond.) | 250 | 0.0 | 26.21 | 6.35 | 39.70 | 0.61 | 0.63 |
+| ImageNet 256×256 (Cond.) | 250 | 0.0 | 26.21 | 6.35 | 39.70 | 0.61 | 0.63 |
+| LSUN Cat 256×256 | 250 | 0.0 | 26.21 | 6.35 | 39.70 | 0.61 | 0.63 |
+| LSUN Horse 256×256 | 250 | 0.0 | 26.21 | 6.35 | 39.70 | 0.61 | 0.63 |
 
 # Cite as
 ```
