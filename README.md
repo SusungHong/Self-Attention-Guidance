@@ -3,7 +3,7 @@
 
 This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Susung Hong, Gyuseong Lee, Wooseok Jang and Seungryong Kim. To gain insight from our exploration of the self-attention maps of diffusion models and for further details, please see our [Paper](https://arxiv.org/abs/2210.00939) and [Project Page](https://ku-cvlab.github.io/Self-Attention-Guidance).
 
-This repository is based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), and you need to additionally install `torchvision` package on that environmental settings. The major implementation of our method is in `guided_diffusion/gaussian_diffusion.py` and `guided_diffusion/unet.py`. We modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation) to get the self-attention maps.
+This repository is based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), and you need to additionally install `torchvision` package on that environmental settings. The major implementation of our method is in `guided_diffusion/gaussian_diffusion.py` and `guided_diffusion/unet.py`.
 
 All you need is to download pretrained models, and sample from them using our implementation. Neither a trainable module nor a dataset is needed to apply self-attention guidance!
 
