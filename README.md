@@ -5,11 +5,13 @@ This is the implementation of the paper <a href="https://arxiv.org/abs/2210.0093
 
 This repository is based on [openai/improved-diffusion](https://github.com/openai/improved-diffusion). The major implementation of our method is in `guided_diffusion/gaussian_diffusion.py` and `guided_diffusion/unet.py`. We modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation) to get the self-attention maps.
 
+All you need is to download pretrained models, and sample from them using self-attention guidance.
+
 # Downloading Pretrained Diffusion Models (and Classifiers for CG)
-Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Place them in the `./models/` directory.
+Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Download and place them in the `./models/` directory.
 
 # Sampling from Pretrained Diffusion Models
-You can sample from pretrained diffusion models with self-attention guidance by changing  `SAG_FLAGS` in the following commands. Note that sampling with `--guide_scale 1.0` means sampling without self-attention guidance.
+You can sample from pretrained diffusion models with self-attention guidance by changing `SAG_FLAGS` in the following commands. Note that sampling with `--guide_scale 1.0` means sampling without self-attention guidance.
 
  * ImageNet 128x128 model (`--classifier_guidance False` deactivates classifier guidance):
 ```
