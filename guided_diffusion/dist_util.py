@@ -28,7 +28,7 @@ def setup_dist():
     os.environ["NCCL_DEBUG"] = "INFO"
 
     comm = MPI.COMM_WORLD
-    backend = "gloo"# if not th.cuda.is_available() else "nccl"
+    backend = "gloo" if not th.cuda.is_available() else "nccl"
 
     if backend == "gloo":
         hostname = "localhost"
