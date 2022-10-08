@@ -7,10 +7,10 @@ This repository is based on [openai/guided-diffusion](https://github.com/openai/
 
 All you need is to download pretrained models, and sample from them using our implementation. Neither a trainable module nor a dataset is needed to apply self-attention guidance!
 
-# Downloading Pretrained Diffusion Models (and Classifiers for CG)
+## Downloading Pretrained Diffusion Models (and Classifiers for CG)
 Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Download and place them in the `./models/` directory.
 
-# Sampling from Pretrained Diffusion Models
+## Sampling from Pretrained Diffusion Models
 You can sample from pretrained diffusion models with self-attention guidance by changing `SAG_FLAGS` in the following commands. Note that sampling with `--guide_scale 1.0` means sampling without self-attention guidance.
 
  * ImageNet 128x128 model (`--classifier_guidance False` deactivates classifier guidance):
