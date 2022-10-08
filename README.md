@@ -1,6 +1,5 @@
 # Self-Attention Diffusion Guidance
 ![image](https://user-images.githubusercontent.com/5498512/194718945-a8fd0a2a-5030-44bb-a3d6-65804686389c.png)
-![image](https://user-images.githubusercontent.com/5498512/194718954-f100b802-331f-4755-9ff4-1eabcf56e479.png)
 
 This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Susung Hong, Gyuseong Lee, Wooseok Jang and Seungryong Kim. To gain insight from our exploration of the self-attention maps of diffusion models and for further details, please see our [Paper](https://arxiv.org/abs/2210.00939) and [Project Page](https://ku-cvlab.github.io/Self-Attention-Guidance).
 
