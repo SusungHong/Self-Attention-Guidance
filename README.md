@@ -5,7 +5,7 @@ This is the implementation of the paper <a href="https://arxiv.org/abs/2210.0093
 
 This repository is based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), and you need to additionally install `torchvision` package on that environmental settings. The major implementation of our method is in `guided_diffusion/gaussian_diffusion.py` and `guided_diffusion/unet.py`. We modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation) to get the self-attention maps.
 
-All you need is to download pretrained models, and sample from them using our implementation. Neither a trainable module nor a dataset is needed to use self-attention guidance!
+All you need is to download pretrained models, and sample from them using our implementation. Neither a trainable module nor a dataset is needed to apply self-attention guidance!
 
 # Downloading Pretrained Diffusion Models (and Classifiers for CG)
 Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Download and place them in the `./models/` directory.
