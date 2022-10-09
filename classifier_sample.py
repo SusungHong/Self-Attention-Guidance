@@ -6,7 +6,6 @@ process towards more realistic images.
 import argparse
 import os
 
-import matplotlib.pyplot as plt
 import numpy as np
 import torch as th
 import torch.distributed as dist
