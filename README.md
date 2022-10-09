@@ -11,7 +11,7 @@ All you need is to setup the environment, download existing models, and sample f
 * Python 3.8, PyTorch 1.11.0
 * 8 x NVIDIA RTX 3090 (set `backend="gloo"` in `./guided_diffusion/dist_util.py` if P2P access is not available)
 ```
-git clone https://github.com/PnDong/Self-Attention-Guidance
+git clone https://github.com/KU-CVLAB/Self-Attention-Guidance
 conda create -n sag python=3.8 anaconda
 conda activate sag
 conda install mpi4py
