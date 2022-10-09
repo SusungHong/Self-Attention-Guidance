@@ -7,6 +7,16 @@ This repository is based on [openai/guided-diffusion](https://github.com/openai/
 
 All you need is to download pretrained models, and sample from them using our implementation. Neither a trainable module nor a dataset is needed to apply self-attention guidance!
 
+## Environment
+NVIDIA RTX 3090 x 8
+'''
+conda create -n sag python=3.8 anaconda
+conda activate sag
+conda install mpi4py
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
+pip install blobfile
+'''
+
 ## Downloading Pretrained Diffusion Models (and Classifiers for CG)
 Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Download and place them in the `./models/` directory.
 
