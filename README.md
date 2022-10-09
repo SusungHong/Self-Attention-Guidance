@@ -8,7 +8,8 @@ This repository is based on [openai/guided-diffusion](https://github.com/openai/
 All you need is to download pretrained models, and sample from them using our implementation. Neither a trainable module nor a dataset is needed to apply self-attention guidance!
 
 ## Environment
-NVIDIA RTX 3090 x 8
+* Python 3.8, PyTorch 1.11.0
+* 8 x NVIDIA RTX 3090
 ```
 conda create -n sag python=3.8 anaconda
 conda activate sag
