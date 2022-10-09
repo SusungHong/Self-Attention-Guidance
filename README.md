@@ -9,7 +9,7 @@ All you need is to setup the environment, download existing models, and sample f
 
 ## Environment
 * Python 3.8, PyTorch 1.11.0
-* 8 x NVIDIA RTX 3090
+* 8 x NVIDIA RTX 3090 (change backend to gloo if p2p access is not available)
 ```
 git clone https://github.com/PnDong/Self-Attention-Guidance
 conda create -n sag python=3.8 anaconda
