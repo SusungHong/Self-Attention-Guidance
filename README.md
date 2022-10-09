@@ -20,7 +20,7 @@ pip install blobfile
 ```
 
 ## Downloading Pretrained Diffusion Models (and Classifiers for CG)
-Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/improved-diffusion). Download and place them in the `./models/` directory.
+Pretrained weights for ImageNet and LSUN can be downloaded from [the repository](https://github.com/openai/guided-diffusion). Download and place them in the `./models/` directory.
 
 ## Sampling from Pretrained Diffusion Models
 You can sample from pretrained diffusion models with self-attention guidance by changing `SAG_FLAGS` in the following commands. Note that sampling with `--guide_scale 1.0` means sampling without self-attention guidance. Below are the 4 examples.
