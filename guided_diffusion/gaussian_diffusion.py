@@ -9,7 +9,6 @@ import enum
 import math
 from math import sqrt
 
-import matplotlib.pyplot as plt
 import numpy as np
 import torch as th
 import torch.nn.functional as F
