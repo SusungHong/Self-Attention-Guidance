@@ -11,6 +11,7 @@ All you need is to setup the environment, download existing pretrained models, a
 * Python 3.8, PyTorch 1.11.0
 * 8 x NVIDIA RTX 3090
 ```
+git clone https://github.com/PnDong/Self-Attention-Guidance
 conda create -n sag python=3.8 anaconda
 conda activate sag
 conda install mpi4py
