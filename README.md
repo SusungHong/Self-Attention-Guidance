@@ -1,4 +1,5 @@
 # Self-Attention Diffusion Guidance
+![image](https://user-images.githubusercontent.com/5498512/194718945-a8fd0a2a-5030-44bb-a3d6-65804686389c.png)
 
 This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Susung Hong et al. To gain insight from our exploration of the self-attention maps of diffusion models and for further details, please see our [Paper](https://arxiv.org/abs/2210.00939) and [Project Page](https://ku-cvlab.github.io/Self-Attention-Guidance).
 
@@ -57,7 +58,6 @@ mpiexec -n 8 python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/
 ```
 
 # Results
-![image](https://user-images.githubusercontent.com/5498512/194718945-a8fd0a2a-5030-44bb-a3d6-65804686389c.png)
 
 **Compatibility of self-attention guidance (SAG) and classifier guidance (CG) on ImageNet 128x128 model:**
 
