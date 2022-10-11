@@ -293,13 +293,11 @@
 		</button></center>
 	</table>
 	<table align=center width=850px>
-		<center>
-			<tr>
-				<td>
-					<center>Unselected qualitative comparison of our method to unguided ADM (Dhariwal and Nichol 2021).</center>
-				</td>
-			</tr>
-		</center>
+		<tr>
+			<td>
+				<center>Unselected qualitative comparison of our method to unguided ADM (Dhariwal and Nichol 2021).</center>
+			</td>
+		</tr>
 	</table>
 	<br>
 
@@ -316,15 +314,15 @@
 		</tr>
 	</table>
 	<table align=center width=850px>
-		<center>
-			<tr>
-				<td>
+		<tr>
+			<td>
+				<center>
 					<b>Overview of our method.</b> First, we feed the input to the UNet to get the attention map and the output.
 					Then, we selectively mask the input and the blurred input according to the attention map. We combine those two and
 					feed it to the UNet. Finally, with our guidance scale s, we linearly combine the two outputs according to Eq. 17.
-				</td>
-			</tr>
-		</center>
+				</center>
+			</td>
+		</tr>
 	</table>
 	<br>
 
@@ -341,20 +339,18 @@
 		</tr>
 	</table>
 	<table align=center width=850px>
-		<center>
-			<tr>
-				<td>
-					<center><b>Comparison of self-attention masks.</b> (a) Self-attention masks of DINO (Caron et al. 2021), (b) self-attention masks
-						of unconditional ADM (Dhariwal and Nichol 2021). Compared to the self-attention masks of the DINO, those of ADM tend
-						to attend to the high-frequency details, e.g., edge of an object, bushes, pebbles, and other repetitive patterns, rather than being
-						centric on a single object.
-					</center>
-				</td>
-			</tr>
-		</center>
+		<tr>
+			<td>
+				<center><b>Comparison of self-attention masks.</b> (a) Self-attention masks of DINO (Caron et al. 2021), (b) self-attention masks
+					of unconditional ADM (Dhariwal and Nichol 2021). Compared to the self-attention masks of the DINO, those of ADM tend
+					to attend to the high-frequency details, e.g., edge of an object, bushes, pebbles, and other repetitive patterns, rather than being
+					centric on a single object.
+				</center>
+			</td>
+		</tr>
 		
-		<tr></tr>
-		<tr></tr>
+		<tr><td></td></tr>
+		<tr><td></td></tr>
 	</table>
 	<table align=center width=400px>
 		<tr>
@@ -366,20 +362,18 @@
 		</tr>
 	</table>
 	<table align=center width=950px>
-		<center>
-			<tr>
-				<td width=700px>
-					<center><b>Frequency analysis of the self-attention map.</b> (a), (b) and (c) show the frequency magnitude comparison of 8×8,
-						16×16, and 32×32 patch sizes, respectively. The last-layer attention maps of the corresponding resolution are used to extract
-						the masks. (d) is the 3D visualization of the percentage of magnitude difference between the attention masks and the inverted
-						masks regarding the 32×32 patches.
-					</center>
-				</td>
-			</tr>
-		</center>
+		<tr>
+			<td width=700px>
+				<center><b>Frequency analysis of the self-attention map.</b> (a), (b) and (c) show the frequency magnitude comparison of 8×8,
+					16×16, and 32×32 patch sizes, respectively. The last-layer attention maps of the corresponding resolution are used to extract
+					the masks. (d) is the 3D visualization of the percentage of magnitude difference between the attention masks and the inverted
+					masks regarding the 32×32 patches.
+				</center>
+			</td>
+		</tr>
 		
-		<tr></tr>
-		<tr></tr>
+		<tr><td></td></tr>
+		<tr><td></td></tr>
 	</table>
 	<table align=center width=1000px>
 		<tr>
