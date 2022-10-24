@@ -342,13 +342,6 @@ class GaussianDiffusion:
             "attn_map": attn_map,
         }
 
-    def square_mask(resolution=128, size=42):
-        x_start = th.randint(0, resolution-size+1)
-        y_start = th.randint(0, resolution-size+1)
-        mask = th.zeros((resolution, resolution))
-        mask[x_start:x_start+size-1, y_start:y_start+size-1] = 1.0
-        return mask
-
     def _predict_xstart_from_eps(self, x_t, t, eps):
         assert x_t.shape == eps.shape
         return (
