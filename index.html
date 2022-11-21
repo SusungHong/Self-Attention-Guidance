@@ -340,7 +340,7 @@
 		<tr>
 			<td align=center width=550px>
 				<center>
-					<img class="round" style="width:400px" src="./resources/method_diagram.png"/>
+					<img class="round" style="width:600px" src="./resources/method_diagram.png"/>
 				</center>
 			</td>
 			<td align=center width=450px>
@@ -354,9 +354,7 @@
 		<tr>
 			<td>
 				<center>
-					<b>Overview of our method.</b> First, we feed the input to the UNet to get the attention map and the output.
-					Then, we selectively mask the input and the blurred input according to the attention map. We combine those two and
-					feed it to the UNet. Finally, with our guidance scale s, we linearly combine the two outputs according to Eq. 17.
+					<b>Overview of our method.</b>
 				</center>
 			</td>
 		</tr>
@@ -378,10 +376,7 @@
 	<table align=center width=850px>
 		<tr>
 			<td>
-				<center><b>Comparison of self-attention masks.</b> (a) Self-attention masks of DINO (Caron et al. 2021), (b) self-attention masks
-					of unconditional ADM (Dhariwal and Nichol 2021). Compared to the self-attention masks of the DINO, those of ADM tend
-					to attend to the high-frequency details, e.g., edge of an object, bushes, pebbles, and other repetitive patterns, rather than being
-					centric on a single object.
+				<center><b>Characteristics of the self-attention masks from diffusion models.</b>
 				</center>
 			</td>
 		</tr>
@@ -400,10 +395,7 @@
 	<table align=center width=950px>
 		<tr>
 			<td width=700px>
-				<center><b>Frequency analysis of the self-attention map.</b> (a), (b) and (c) show the frequency magnitude comparison of 8×8,
-					16×16, and 32×32 patch sizes, respectively. The last-layer attention maps of the corresponding resolution are used to extract
-					the masks. (d) is the 3D visualization of the percentage of magnitude difference between the attention masks and the inverted
-					masks regarding the 32×32 patches.
+				<center><b>Frequency analysis of the self-attention masks.</b>
 				</center>
 			</td>
 		</tr>
@@ -434,7 +426,7 @@
 				</center>
 			</td>
 			<td width=450px>
-				<center>Intersection of Unit (IoU) between the object mask
+				<center>Intersection of Union (IoU) between the object mask
 					predicted by off-the-shelf Mask R-CNN (He et al. 2017) and
 					the self-attention of diffusion models.						
 				</center>
