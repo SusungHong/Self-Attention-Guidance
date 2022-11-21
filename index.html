@@ -132,6 +132,24 @@
 		background-image: url('./resources/unselected_ours.png');
 		background-size: cover;
 	}
+	#unsel_sd {
+		margin-top: 50px;
+		width: 1000px;
+		height: 500px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-size: 2rem;
+		color: white;
+		background-image: url('./resources/sd_base.png');
+		background-size: cover;
+	}
+	#unsel_sd:hover {
+		border: none;
+		outline: none;
+		background-image: url('./resources/sd_ours.png');
+		background-size: cover;
+	}
     </style>
 </style>
 
@@ -296,6 +314,20 @@
 		<tr>
 			<td>
 				<center>Unselected qualitative comparison of our method to unguided ADM (Dhariwal and Nichol 2021).</center>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<table align=center width=400px>
+		<center><button type="submit" id="unsel_sd">
+			Put on your mouse!
+		</button></center>
+	</table>
+	<table align=center width=850px>
+		<tr>
+			<td>
+				<center>Unselected qualitative comparison of our method to unguided Stable Diffusion (Rombach et al. 2022).</center>
 			</td>
 		</tr>
 	</table>
