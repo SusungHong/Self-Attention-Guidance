@@ -345,7 +345,7 @@
 			</td>
 			<td align=center width=500px>
 				<center>
-					<img class="round" style="width:300px" src="./resources/method_diagram_sel.png"/>
+					<img class="round" style="width:500px" src="./resources/method_diagram_sel.png"/>
 				</center>
 			</td>
 		</tr>
@@ -376,7 +376,7 @@
 	<table align=center width=850px>
 		<tr>
 			<td>
-				<center><b>Characteristics of the self-attention masks from diffusion models.</b>
+				<center><b>Characteristics of the self-attention masks from diffusion models:</b> (a) the object masks of the synthesized images from ADM~\cite{dhariwal2021diffusion}, (b) the frequency masks, and (c) the self-attention masks within the diffusion model. The self-attention masks tend to attend to the high-frequency details, \textit{e.g.}, edge of an object, bushes, rocks, and other repetitive patterns, and capture the objects generally. Based on these observations, we use the self-attention mask to give a self-guidance signal for diffusion models.
 				</center>
 			</td>
 		</tr>
@@ -395,7 +395,7 @@
 	<table align=center width=950px>
 		<tr>
 			<td width=700px>
-				<center><b>Frequency analysis of the self-attention masks.</b>
+				<center><b>Frequency analysis of the self-attention masks:</b> (a), (b) and (c) show the frequency-magnitude graphs of 8x8, 16x16, and 32x32 patches, respectively. Note that ψ denotes the masking threshold. (d) is a 3D visualization that shows the percentage difference of magnitude between masked and non-masked patches in the frequency domain regarding the 32x32 patches.
 				</center>
 			</td>
 		</tr>
