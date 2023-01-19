@@ -1,5 +1,6 @@
 # Self-Attention Diffusion Guidance
 <a href="https://arxiv.org/abs/2210.00939"><img src="https://img.shields.io/badge/arXiv-2210.00939-%23B31B1B"></a>
+<a href="https://ku-cvlab.github.io/Self-Attention-Guidance"><img src="https://img.shields.io/badge/Project%20Page-online-brightgreen"></a>
 ![image](https://user-images.githubusercontent.com/5498512/203083063-b61df338-c986-4980-81f0-1f1532ea8245.png)
 This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Hong et al. To gain insight from our exploration of the self-attention maps of diffusion models and for detailed explanations, please see our [Paper](https://arxiv.org/abs/2210.00939) and [Project Page](https://ku-cvlab.github.io/Self-Attention-Guidance).
 
