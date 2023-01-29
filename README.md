@@ -7,7 +7,6 @@
 This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Hong et al. To gain insight from our exploration of the self-attention maps of diffusion models and for detailed explanations, please see our [Paper](https://arxiv.org/abs/2210.00939) and [Project Page](https://ku-cvlab.github.io/Self-Attention-Guidance).
 
 This repository is based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), and we modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation) to get the self-attention maps. The major implementation of our method is in `./guided_diffusion/gaussian_diffusion.py` and `./guided_diffusion/unet.py`. The demo for Stable Diffusion is now available in Colab.
-<a href="https://colab.research.google.com/github/SusungHong/Self-Attention-Guidance/blob/main/SAG_Stable.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
 
 All you need is to setup the environment, download existing models, and sample from them using our implementation. Neither further training nor a dataset is needed to apply self-attention guidance!
 
