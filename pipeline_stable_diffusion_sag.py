@@ -586,7 +586,7 @@ class StableDiffusionSAGPipeline(DiffusionPipeline):
                         uncond_attn, cond_attn = self.unet.mid_block.attentions[0].transformer_blocks[0] \
                                                 .attn1.processor.attention_probs.chunk(2)
                         # self-attention-based degrading of latents
-                        degraded_latents = self.sag_masking(pred_x0, uncond_attn, t, noise_pred_uncond)
+                        degraded_latents = self.sag_masking(pred_x0, uncond_attn, t, self.pred_eps_from_noise(latents, noise_pred_uncond, t))
                         uncond_emb, _ = text_embeddings.chunk(2)
                         # forward and give guidance
                         degraded_pred = self.unet(degraded_latents, t, encoder_hidden_states=uncond_emb).sample
@@ -598,7 +598,7 @@ class StableDiffusionSAGPipeline(DiffusionPipeline):
                         cond_attn = self.unet.mid_block.attentions[0].transformer_blocks[0] \
                                                 .attn1.processor.attention_probs
                         # self-attention-based degrading of latents
-                        degraded_latents = self.sag_masking(pred_x0, cond_attn, t, noise_pred)
+                        degraded_latents = self.sag_masking(pred_x0, cond_attn, t, self.pred_eps_from_noise(latents, noise_pred, t))
                         # forward and give guidance
                         degraded_pred = self.unet(degraded_latents, t, encoder_hidden_states=text_embeddings).sample
                         noise_pred += sag_scale * (noise_pred - degraded_pred)
@@ -680,3 +680,27 @@ class StableDiffusionSAGPipeline(DiffusionPipeline):
         #     pred_original_sample = torch.clamp(pred_original_sample, -1, 1)
 
         return pred_original_sample
+
+    def pred_eps_from_noise(self, sample, model_output, timestep):
+        # 1. get previous step value (=t-1)
+        prev_timestep = timestep - self.scheduler.config.num_train_timesteps // self.scheduler.num_inference_steps
+
+        # 2. compute alphas, betas
+        alpha_prod_t = self.scheduler.alphas_cumprod[timestep]
+        alpha_prod_t_prev = self.scheduler.alphas_cumprod[prev_timestep] if prev_timestep >= 0 else self.scheduler.final_alpha_cumprod
+
+        beta_prod_t = 1 - alpha_prod_t
+        # 3. compute predicted eps from model output
+        if self.scheduler.config.prediction_type == "epsilon":
+            pred_eps = model_output
+        elif self.scheduler.config.prediction_type == "sample":
+            pred_eps = (sample - (alpha_prod_t**0.5) * model_output) / (beta_prod_t**0.5)
+        elif self.scheduler.config.prediction_type == "v_prediction":
+            pred_eps = (beta_prod_t**0.5) * sample + (alpha_prod_t**0.5) * model_output
+        else:
+            raise ValueError(
+                f"prediction_type given as {self.scheduler.config.prediction_type} must be one of `epsilon`, `sample`, or"
+                " `v_prediction`"
+            )
+
+        return pred_eps
