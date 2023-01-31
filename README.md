@@ -6,12 +6,12 @@
 ![image](https://user-images.githubusercontent.com/5498512/203083063-b61df338-c986-4980-81f0-1f1532ea8245.png)
 This is the implementation of the paper <a href="https://arxiv.org/abs/2210.00939">Improving Sample Quality of Diffusion Models Using Self-Attention Guidance</a> by Hong et al. To gain insight from our exploration of the self-attention maps of diffusion models and for detailed explanations, please see our [Paper](https://arxiv.org/abs/2210.00939) and [Project Page](https://ku-cvlab.github.io/Self-Attention-Guidance).
 
-### Updates
-**2023-02-01** The demo for Stable Diffusion is now available in [Colab](https://colab.research.google.com/github/SusungHong/Self-Attention-Guidance/blob/main/SAG_Stable.ipynb).
-
 This repository is based on [openai/guided-diffusion](https://github.com/openai/guided-diffusion), and we modified feature extraction code from [yandex-research/ddpm-segmentation](https://github.com/yandex-research/ddpm-segmentation) to get the self-attention maps. The major implementation of our method is in `./guided_diffusion/gaussian_diffusion.py` and `./guided_diffusion/unet.py`.
 
 All you need is to setup the environment, download existing models, and sample from them using our implementation. Neither further training nor a dataset is needed to apply self-attention guidance!
+
+## Updates
+**2023-02-01** The demo for Stable Diffusion is now available in [Colab](https://colab.research.google.com/github/SusungHong/Self-Attention-Guidance/blob/main/SAG_Stable.ipynb).
 
 ## Environment
 * Python 3.8, PyTorch 1.11.0
