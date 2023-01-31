@@ -632,6 +632,8 @@ class StableDiffusionSAGPipeline(DiffusionPipeline):
         bh, hw1, hw2 = attn_map.shape
         b, latent_channel, latent_h, latent_w= original_latents.shape
         h = self.unet.attention_head_dim
+        if isinstance(h, list):
+            h = h[-1]
         map_size = math.isqrt(hw1)
 
         # Produce attention mask
