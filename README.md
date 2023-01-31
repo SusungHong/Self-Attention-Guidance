@@ -11,7 +11,7 @@ This repository is based on [openai/guided-diffusion](https://github.com/openai/
 All you need is to setup the environment, download existing models, and sample from them using our implementation. Neither further training nor a dataset is needed to apply self-attention guidance!
 
 ## Updates
-**2023-02-01** The demo for Stable Diffusion is now available in [Colab](https://colab.research.google.com/github/SusungHong/Self-Attention-Guidance/blob/main/SAG_Stable.ipynb).
+**2023-02-01:** The demo for Stable Diffusion is now available in [Colab](https://colab.research.google.com/github/SusungHong/Self-Attention-Guidance/blob/main/SAG_Stable.ipynb).
 
 ## Environment
 * Python 3.8, PyTorch 1.11.0
