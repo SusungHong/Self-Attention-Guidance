@@ -12,7 +12,7 @@ All you need is to setup the environment, download existing models, and sample f
 
 ## Updates
 
-**2023-02-16:** The [Gradio Demo](https://huggingface.co/spaces/susunghong/Self-Attention-Guidance):hugs: of SAG is now available
+**2023-02-19:** The [Gradio Demo](https://huggingface.co/spaces/susunghong/Self-Attention-Guidance):hugs: of SAG is now available
 
 **2023-02-16:** The Stable Diffusion pipeline of SAG is now available at [huggingface/diffusers](https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/self_attention_guidance) :hugs::firecracker:
 
