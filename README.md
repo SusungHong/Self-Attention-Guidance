@@ -1,7 +1,6 @@
 # Self-Attention Diffusion Guidance
 <a href="https://arxiv.org/abs/2210.00939"><img src="https://img.shields.io/badge/arXiv-2210.00939-%23B31B1B"></a>
 <a href="https://ku-cvlab.github.io/Self-Attention-Guidance"><img src="https://img.shields.io/badge/Project%20Page-online-brightgreen"></a>
-<br>
 <a href="https://colab.research.google.com/github/SusungHong/Self-Attention-Guidance/blob/main/SAG_Stable.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg"></a>
 <a href="https://huggingface.co/spaces/susunghong/Self-Attention-Guidance"><img src="https://camo.githubusercontent.com/00380c35e60d6b04be65d3d94a58332be5cc93779f630bcdfc18ab9a3a7d3388/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f25463025394625413425393725323048756767696e67253230466163652d5370616365732d626c7565"></a>
 
