@@ -15,7 +15,7 @@ All you need is to setup the environment, download existing models, and sample f
 
 **2023-02-19:** The [Gradio Demo](https://huggingface.co/spaces/susunghong/Self-Attention-Guidance):hugs: of SAG for Stable Diffusion is now available
 
-**2023-02-16:** The Stable Diffusion pipeline of SAG is now available at [huggingface/diffusers](https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/self_attention_guidance) :hugs::firecracker:
+**2023-02-16:** The Stable Diffusion pipeline of SAG is now available at [huggingface/diffusers](https://huggingface.co/docs/diffusers/api/pipelines/self_attention_guidance) :hugs::firecracker:
 
 **2023-02-01:** The demo for Stable Diffusion is now available in [Colab](https://colab.research.google.com/github/SusungHong/Self-Attention-Guidance/blob/main/SAG_Stable.ipynb).
 
