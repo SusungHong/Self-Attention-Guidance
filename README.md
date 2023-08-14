@@ -78,8 +78,8 @@ CLASSIFIER_FLAGS="--image_size 128 --classifier_attention_resolutions 32,16,8 --
 SAMPLE_FLAGS="--batch_size 8 --num_samples 8 --timestep_respacing ddim25 --use_ddim True"
 SAG_FLAGS="--guide_scale 1.1 --guide_start 25 --sel_attn_block output --sel_attn_depth 8 --blur_sigma 3 --classifier_guidance True"
 mpiexec -n $NUM_GPUS python classifier_sample.py \
-    --model_path /home/cvlab16/projects/diffusion/susung/Self-Attention-Guidance/128x128_diffusion.pt \
-    --classifier_path /home/cvlab16/projects/diffusion/susung/Self-Attention-Guidance/128x128_classifier.pt \
+    --model_path models/128x128_diffusion.pt \
+    --classifier_path models/128x128_classifier.pt \
     $MODEL_FLAGS $CLASSIFIER_FLAGS $SAMPLE_FLAGS $SAG_FLAGS
 ```
 
