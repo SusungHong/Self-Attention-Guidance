@@ -685,7 +685,7 @@ class GaussianDiffusion:
         cond_fn=None,
         model_kwargs=None,
         eta=0.0,
-        attn_guidance=False,
+        attn_guidance=True,
         guidance_kwargs=None,
     ):
         """
@@ -708,7 +708,8 @@ class GaussianDiffusion:
                 model_kwargs=model_kwargs,
             )
             # Get the original output: eps(x_t)
-            cond_eps = out['eps']
+            cond_eps = self._predict_eps_from_xstart(x, t, out["pred_xstart"])
+            # cond_eps = out['eps']
 
             mask_blurred = self.attention_masking(
                 out['pred_xstart'],
@@ -727,10 +728,21 @@ class GaussianDiffusion:
                 model_kwargs=model_kwargs,
             )
             # Get the original output: eps(bar{x_t})
-            uncond_eps = mask_out['eps']
+            uncond_eps = self._predict_eps_from_xstart(x, t, mask_out["pred_xstart"])
+            # uncond_eps = mask_out['eps']
 
             # Get the guided eps: eps(bar{x_t}) + s * (eps(x_t) - eps(bar{x_t}))
             guided_eps = uncond_eps + guide_scale * (cond_eps - uncond_eps)
+
+            def process_xstart(x):
+                if denoised_fn is not None:
+                    x = denoised_fn(x)
+                if clip_denoised:
+                    return x.clamp(-1, 1)
+                return x
+            pred_xstart = process_xstart(
+                self._predict_xstart_from_eps(x_t=x, t=t, eps=guided_eps)
+            )
 
             if cond_fn is not None:
                 out = self.condition_score(cond_fn, out, x, t, model_kwargs=model_kwargs)
@@ -749,7 +761,7 @@ class GaussianDiffusion:
             # Equation 12.
             noise = th.randn_like(x)
             mean_pred = (
-                out["pred_xstart"] * th.sqrt(alpha_bar_prev)
+                pred_xstart * th.sqrt(alpha_bar_prev)
                 + th.sqrt(1 - alpha_bar_prev - sigma ** 2) * guided_eps
             )
             nonzero_mask = (
