@@ -708,14 +708,13 @@ class GaussianDiffusion:
                 model_kwargs=model_kwargs,
             )
             # Get the original output: eps(x_t)
-            cond_eps = self._predict_eps_from_xstart(x, t, out["pred_xstart"])
-            # cond_eps = out['eps']
+            cond_eps = out["eps"]
 
             mask_blurred = self.attention_masking(
                 out['pred_xstart'],
                 t,
                 out['attn_map'],
-                prev_noise=cond_eps,
+                prev_noise=out['eps'],
                 blur_sigma=blur_sigma,
                 model_kwargs=model_kwargs,
             )
@@ -728,9 +727,8 @@ class GaussianDiffusion:
                 model_kwargs=model_kwargs,
             )
             # Get the original output: eps(bar{x_t})
-            uncond_eps = self._predict_eps_from_xstart(x, t, mask_out["pred_xstart"])
-            # uncond_eps = mask_out['eps']
-
+            uncond_eps = mask_out["eps"]
+            
             # Get the guided eps: eps(bar{x_t}) + s * (eps(x_t) - eps(bar{x_t}))
             guided_eps = uncond_eps + guide_scale * (cond_eps - uncond_eps)
 
@@ -740,16 +738,15 @@ class GaussianDiffusion:
                 if clip_denoised:
                     return x.clamp(-1, 1)
                 return x
-            pred_xstart = process_xstart(
-                self._predict_xstart_from_eps(x_t=x, t=t, eps=guided_eps)
-            )
 
+            final_out = {}
+            final_out["pred_xstart"] = process_xstart(self._predict_xstart_from_eps(x_t=x, t=t, eps=guided_eps))
             if cond_fn is not None:
-                out = self.condition_score(cond_fn, out, x, t, model_kwargs=model_kwargs)
+                final_out = self.condition_score(cond_fn, final_out, x, t, model_kwargs=model_kwargs)
 
             # Usually our model outputs epsilon, but we re-derive it
             # in case we used x_start or x_prev prediction.
-            # eps = self._predict_eps_from_xstart(x, t, out["pred_xstart"])
+            eps = self._predict_eps_from_xstart(x, t, final_out["pred_xstart"])
 
             alpha_bar = _extract_into_tensor(self.alphas_cumprod, t, x.shape)
             alpha_bar_prev = _extract_into_tensor(self.alphas_cumprod_prev, t, x.shape)
@@ -761,8 +758,8 @@ class GaussianDiffusion:
             # Equation 12.
             noise = th.randn_like(x)
             mean_pred = (
-                pred_xstart * th.sqrt(alpha_bar_prev)
-                + th.sqrt(1 - alpha_bar_prev - sigma ** 2) * guided_eps
+                final_out["pred_xstart"] * th.sqrt(alpha_bar_prev)
+                + th.sqrt(1 - alpha_bar_prev - sigma ** 2) * eps
             )
             nonzero_mask = (
                 (t != 0).float().view(-1, *([1] * (len(x.shape) - 1)))
