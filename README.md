@@ -13,6 +13,8 @@ All you need is to setup the environment, download existing models, and sample f
 
 ## Updates
 
+**2023-08-14:** This repository now supports DDIM sampling with SAG.
+
 **2023-02-19:** The [Gradio Demo](https://huggingface.co/spaces/susunghong/Self-Attention-Guidance):hugs: of SAG for Stable Diffusion is now available
 
 **2023-02-16:** The Stable Diffusion pipeline of SAG is now available at [huggingface/diffusers](https://huggingface.co/docs/diffusers/api/pipelines/self_attention_guidance) :hugs::firecracker:
@@ -67,6 +69,18 @@ SAMPLE_FLAGS="--batch_size 16 --num_samples 10000 --timestep_respacing 250"
 MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond False --diffusion_steps 1000 --dropout 0.1 --image_size 256 --learn_sigma True --noise_schedule linear --num_channels 256 --num_head_channels 64 --num_res_blocks 2 --resblock_updown True --use_fp16 True --use_scale_shift_norm True"
 SAG_FLAGS="--guide_scale 1.01 --guide_start 250 --sel_attn_block output --sel_attn_depth 2 --blur_sigma 9 --classifier_guidance False"
 mpiexec -n $NUM_GPUS python image_sample.py $SAG_FLAGS $MODEL_FLAGS --model_path models/lsun_horse.pt $SAMPLE_FLAGS
+```
+
+ * ImageNet 128x128 model (DDIM 25 steps):
+```
+MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --image_size 128 --learn_sigma True --num_channels 256 --num_heads 4 --num_res_blocks 2 --resblock_updown True --use_fp16 True --use_scale_shift_norm True"
+CLASSIFIER_FLAGS="--image_size 128 --classifier_attention_resolutions 32,16,8 --classifier_depth 2 --classifier_width 128 --classifier_pool attention --classifier_resblock_updown True --classifier_use_scale_shift_norm True --classifier_scale 1.0 --classifier_use_fp16 True"
+SAMPLE_FLAGS="--batch_size 8 --num_samples 8 --timestep_respacing ddim25 --use_ddim True"
+SAG_FLAGS="--guide_scale 1.1 --guide_start 25 --sel_attn_block output --sel_attn_depth 8 --blur_sigma 3 --classifier_guidance True"
+mpiexec -n $NUM_GPUS python classifier_sample.py \
+    --model_path /home/cvlab16/projects/diffusion/susung/Self-Attention-Guidance/128x128_diffusion.pt \
+    --classifier_path /home/cvlab16/projects/diffusion/susung/Self-Attention-Guidance/128x128_classifier.pt \
+    $MODEL_FLAGS $CLASSIFIER_FLAGS $SAMPLE_FLAGS $SAG_FLAGS
 ```
 
 # Results
