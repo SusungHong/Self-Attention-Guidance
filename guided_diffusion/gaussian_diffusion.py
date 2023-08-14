@@ -685,45 +685,113 @@ class GaussianDiffusion:
         cond_fn=None,
         model_kwargs=None,
         eta=0.0,
+        attn_guidance=False,
+        guidance_kwargs=None,
     ):
         """
         Sample x_{t-1} from the model using DDIM.
 
         Same usage as p_sample().
         """
-        out = self.p_mean_variance(
-            model,
-            x,
-            t,
-            clip_denoised=clip_denoised,
-            denoised_fn=denoised_fn,
-            model_kwargs=model_kwargs,
-        )
-        if cond_fn is not None:
-            out = self.condition_score(cond_fn, out, x, t, model_kwargs=model_kwargs)
 
-        # Usually our model outputs epsilon, but we re-derive it
-        # in case we used x_start or x_prev prediction.
-        eps = self._predict_eps_from_xstart(x, t, out["pred_xstart"])
+        guide_scale = guidance_kwargs['guide_scale']
+        guide_start = guidance_kwargs['guide_start']
+        blur_sigma = guidance_kwargs['blur_sigma']
 
-        alpha_bar = _extract_into_tensor(self.alphas_cumprod, t, x.shape)
-        alpha_bar_prev = _extract_into_tensor(self.alphas_cumprod_prev, t, x.shape)
-        sigma = (
-            eta
-            * th.sqrt((1 - alpha_bar_prev) / (1 - alpha_bar))
-            * th.sqrt(1 - alpha_bar / alpha_bar_prev)
-        )
-        # Equation 12.
-        noise = th.randn_like(x)
-        mean_pred = (
-            out["pred_xstart"] * th.sqrt(alpha_bar_prev)
-            + th.sqrt(1 - alpha_bar_prev - sigma ** 2) * eps
-        )
-        nonzero_mask = (
-            (t != 0).float().view(-1, *([1] * (len(x.shape) - 1)))
-        )  # no noise when t == 0
-        sample = mean_pred + nonzero_mask * sigma * noise
-        return {"sample": sample, "pred_xstart": out["pred_xstart"]}
+        if attn_guidance and guide_start>t[0]:
+            out = self.p_mean_variance(
+                model,
+                x,
+                t,
+                clip_denoised=clip_denoised,
+                denoised_fn=denoised_fn,
+                model_kwargs=model_kwargs,
+            )
+            # Get the original output: eps(x_t)
+            cond_eps = out['eps']
+
+            mask_blurred = self.attention_masking(
+                out['pred_xstart'],
+                t,
+                out['attn_map'],
+                prev_noise=cond_eps,
+                blur_sigma=blur_sigma,
+                model_kwargs=model_kwargs,
+            )
+            mask_out = self.p_mean_variance(
+                model,
+                mask_blurred,
+                t,
+                clip_denoised=clip_denoised,
+                denoised_fn=denoised_fn,
+                model_kwargs=model_kwargs,
+            )
+            # Get the original output: eps(bar{x_t})
+            uncond_eps = mask_out['eps']
+
+            # Get the guided eps: eps(bar{x_t}) + s * (eps(x_t) - eps(bar{x_t}))
+            guided_eps = uncond_eps + guide_scale * (cond_eps - uncond_eps)
+
+            if cond_fn is not None:
+                out = self.condition_score(cond_fn, out, x, t, model_kwargs=model_kwargs)
+
+            # Usually our model outputs epsilon, but we re-derive it
+            # in case we used x_start or x_prev prediction.
+            # eps = self._predict_eps_from_xstart(x, t, out["pred_xstart"])
+
+            alpha_bar = _extract_into_tensor(self.alphas_cumprod, t, x.shape)
+            alpha_bar_prev = _extract_into_tensor(self.alphas_cumprod_prev, t, x.shape)
+            sigma = (
+                eta
+                * th.sqrt((1 - alpha_bar_prev) / (1 - alpha_bar))
+                * th.sqrt(1 - alpha_bar / alpha_bar_prev)
+            )
+            # Equation 12.
+            noise = th.randn_like(x)
+            mean_pred = (
+                out["pred_xstart"] * th.sqrt(alpha_bar_prev)
+                + th.sqrt(1 - alpha_bar_prev - sigma ** 2) * guided_eps
+            )
+            nonzero_mask = (
+                (t != 0).float().view(-1, *([1] * (len(x.shape) - 1)))
+            )  # no noise when t == 0
+            sample = mean_pred + nonzero_mask * sigma * noise
+            return {"sample": sample, "pred_xstart": out["pred_xstart"]}
+
+        else: # No self-attention guidance
+            out = self.p_mean_variance(
+                model,
+                x,
+                t,
+                clip_denoised=clip_denoised,
+                denoised_fn=denoised_fn,
+                model_kwargs=model_kwargs,
+            )
+            if cond_fn is not None:
+                out = self.condition_score(cond_fn, out, x, t, model_kwargs=model_kwargs)
+
+            # Usually our model outputs epsilon, but we re-derive it
+            # in case we used x_start or x_prev prediction.
+            eps = self._predict_eps_from_xstart(x, t, out["pred_xstart"])
+
+            alpha_bar = _extract_into_tensor(self.alphas_cumprod, t, x.shape)
+            alpha_bar_prev = _extract_into_tensor(self.alphas_cumprod_prev, t, x.shape)
+            sigma = (
+                eta
+                * th.sqrt((1 - alpha_bar_prev) / (1 - alpha_bar))
+                * th.sqrt(1 - alpha_bar / alpha_bar_prev)
+            )
+            # Equation 12.
+            noise = th.randn_like(x)
+            mean_pred = (
+                out["pred_xstart"] * th.sqrt(alpha_bar_prev)
+                + th.sqrt(1 - alpha_bar_prev - sigma ** 2) * eps
+            )
+            nonzero_mask = (
+                (t != 0).float().view(-1, *([1] * (len(x.shape) - 1)))
+            )  # no noise when t == 0
+            sample = mean_pred + nonzero_mask * sigma * noise
+            return {"sample": sample, "pred_xstart": out["pred_xstart"]}
 
     def ddim_reverse_sample(
         self,
@@ -775,6 +843,7 @@ class GaussianDiffusion:
         device=None,
         progress=False,
         eta=0.0,
+        guidance_kwargs=None
     ):
         """
         Generate samples from the model using DDIM.
@@ -793,6 +862,7 @@ class GaussianDiffusion:
             device=device,
             progress=progress,
             eta=eta,
+            guidance_kwargs=guidance_kwargs
         ):
             final = sample
         return final["sample"]
@@ -809,6 +879,7 @@ class GaussianDiffusion:
         device=None,
         progress=False,
         eta=0.0,
+        guidance_kwargs=None
     ):
         """
         Use DDIM to sample from the model and yield intermediate samples from
@@ -843,6 +914,7 @@ class GaussianDiffusion:
                     cond_fn=cond_fn,
                     model_kwargs=model_kwargs,
                     eta=eta,
+                    guidance_kwargs=guidance_kwargs
                 )
                 yield out
                 img = out["sample"]
