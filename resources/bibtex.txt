@@ -1,6 +1,7 @@
-@article{hong2022improving,
-  title={Improving Sample Quality of Diffusion Models Using Self-Attention Guidance},
+@inproceedings{hong2023improving,
+  title={Improving sample quality of diffusion models using self-attention guidance},
   author={Hong, Susung and Lee, Gyuseong and Jang, Wooseok and Kim, Seungryong},
-  journal={arXiv preprint arXiv:2210.00939},
-  year={2022}
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={7462--7471},
+  year={2023}
 }
